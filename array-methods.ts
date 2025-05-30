@@ -21,6 +21,20 @@ class ArrayMethods{
         return this.arr.length;  //This return the length of the Array after the value had been addded to it
     }
 
+    sort(): number[]{
+        for(let i = 0; i < this.arr.length; i++){  //this method is called bubble sort
+            for(let j = 0; j < this.arr.length - i - 1; j++){
+                if (this.arr[j] > this.arr[j+1]){
+                    let temp = this.arr[j];
+                    this.arr[j] = this.arr[j+1];
+                    this.arr[j+1] = temp;
+                }
+            }
+        }
+
+        return this.arr;
+    }
+
     getArray(): number[] {
         return this.arr;
     }
@@ -31,12 +45,16 @@ const arrayMethods = new ArrayMethods([1, 2, 3, 4]);
 
 console.log(arrayMethods.getArray());  // [1, 2, 3, 4]
 
-const result = arrayMethods.pop();
+// const result = arrayMethods.pop();
 
-console.log(result);  // Output: 4
-console.log(arrayMethods.getArray())  // oUTPUT: [1, 2, 3]
+// console.log(result);  // Output: 4
+// console.log(arrayMethods.getArray())  // oUTPUT: [1, 2, 3]
 
-const newArrayLength = arrayMethods.push(6);
-console.log("New Array Length", newArrayLength) // Output: 4
+const newArrayLength = arrayMethods.push(3);
+arrayMethods.push(9);
+arrayMethods.push(7);
+console.log("New Array Length", newArrayLength) // Output: 5
 
-console.log(arrayMethods.getArray())  // oUTPUT: [1, 2, 3, 6]
+console.log(arrayMethods.sort());
+
+console.log(arrayMethods.getArray())  
